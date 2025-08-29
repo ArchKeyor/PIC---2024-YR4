@@ -1,3 +1,4 @@
+
 import matplotlib.pyplot as plt
 
 variaveis = [
@@ -30,3 +31,4 @@ def gerar_grafico_comparativo(x1, y1, x2, y2, titulo, ylabel, label1, label2):
     ax.legend()
     fig.tight_layout()
     return fig
+

@@ -1,3 +1,4 @@
+
 import customtkinter as ctk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from data_loader import carregar_dados
