@@ -38,11 +38,11 @@ def criar_interface(app):
     def gerar_graficos():
         limpar_graficos()
         n = float(selected_object_1.get())
-        df_filtrado = df[df['N'] == n].sort_values(by='t')
+        df_filtrado = df[df['N'] == n].sort_values(by='tempo')
         frames = [upper_frame] * 3 + [lower_frame] * 3
 
         for i, (coluna, titulo, ylabel) in enumerate(variaveis):
-            chart = criar_grafico(df_filtrado['t'], df_filtrado[coluna], titulo.format(n=int(n)), ylabel)
+            chart = criar_grafico(df_filtrado['tempo'], df_filtrado[coluna], titulo.format(n=int(n)), ylabel)
             canvas = FigureCanvasTkAgg(chart, master=frames[i])
             canvas.draw()
             canvas.get_tk_widget().pack(side="left", fill="both", expand=True, padx=5)
@@ -53,14 +53,14 @@ def criar_interface(app):
         if n1 == n2:
             ctk.CTkLabel(side_frame, text="Selecione dois objetos N diferentes!", text_color="red").pack(pady=10)
             return
-        df1 = df[df['N'] == n1].sort_values(by='t')
-        df2 = df[df['N'] == n2].sort_values(by='t')
+        df1 = df[df['N'] == n1].sort_values(by='tempo')
+        df2 = df[df['N'] == n2].sort_values(by='tempo')
         frames = [upper_frame] * 3 + [lower_frame] * 3
 
         for i, (coluna, titulo, ylabel) in enumerate(variaveis):
             chart = gerar_grafico_comparativo(
-                df1['t'], df1[coluna],
-                df2['t'], df2[coluna],
+                df1['tempo'], df1[coluna],
+                df2['tempo'], df2[coluna],
                 f"{titulo} para N = {int(n1)} e N = {int(n2)}",
                 ylabel, int(n1), int(n2)
             )
