@@ -6,6 +6,7 @@ def fechar_app():
     app.destroy()
     app.quit()
 
+
 if __name__ == "__main__":
     ctk.set_appearance_mode("dark")
     

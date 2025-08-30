@@ -1,4 +1,3 @@
-
 import customtkinter as ctk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from data_loader import carregar_dados
@@ -31,8 +30,8 @@ def criar_interface(app):
     lower_frame = ctk.CTkFrame(charts_frame)
     lower_frame.pack(fill='both', expand=True, pady=5)
 
-    error_label = ctk.CTkLabel(side_frame, text="Selecione dois objetos N diferentes!", text_color="red")
 
+    error_label = ctk.CTkLabel(side_frame, text="Selecione dois objetos N diferentes!", text_color="red")
 
     # Botões
     def limpar_graficos():
@@ -55,9 +54,11 @@ def criar_interface(app):
         limpar_graficos()
         n1, n2 = float(selected_object_1.get()), float(selected_object_2.get())
         if n1 == n2:
+
             error_label.pack(pady = 10)
             return
         error_label.pack_forget()
+
         df1 = df[df['N'] == n1].sort_values(by='tempo')
         df2 = df[df['N'] == n2].sort_values(by='tempo')
         frames = [upper_frame] * 3 + [lower_frame] * 3

@@ -1,4 +1,3 @@
-
 import matplotlib.pyplot as plt
 
 variaveis = [
@@ -21,7 +20,6 @@ def criar_grafico(x, y, titulo, ylabel):
     plt.close()
     return fig
 
-
 def gerar_grafico_comparativo(x1, y1, x2, y2, titulo, ylabel, label1, label2):
     fig, ax = plt.subplots(figsize=(5, 3))
     ax.plot(x1, y1, color='#1A2A80', linestyle='-', label=f'N = {label1}')
@@ -34,4 +32,3 @@ def gerar_grafico_comparativo(x1, y1, x2, y2, titulo, ylabel, label1, label2):
     fig.tight_layout()
     plt.close()
     return fig
-
